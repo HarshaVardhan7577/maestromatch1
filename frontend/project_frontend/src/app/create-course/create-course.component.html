@@ -1,0 +1,50 @@
+<div style="margin-top: 2%; ">
+    <mat-card style="width:55% ;margin: auto; background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      ); ">
+        <mat-card-header style="margin: auto;display: flex;flex-direction: column;width: 100%;text-align: center;font-size: xx-large;">
+            <div style="margin: auto;"></div>
+            <div style="font-size: 2rem;font-weight: bold;">Course</div>
+
+        </mat-card-header>
+        <mat-card-content style="margin-top: 10px;">
+            <form class="example-form" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Course Name</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="courseName"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Instrument</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="instrument"
+                        required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="basic-url" class="form-label">Video URL</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">Add links</span>
+                        <input type="text" class="form-control" id="basic-url"
+                            aria-describedby="basic-addon3 basic-addon4" placeholder="add your video link here"
+                            formControlName="videoUrl" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="basic-url" class="form-label">Description</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Textarea</span>
+                        <textarea class="form-control" aria-label="With textarea" placeholder="Add some information"
+                            formControlName="courseDesc" required></textarea>
+                    </div>
+                </div>
+                <button class="example-full-width" mat-raised-button color="primary" type="submit">Submit</button>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+</div>

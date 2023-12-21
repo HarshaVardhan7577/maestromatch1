@@ -1,0 +1,97 @@
+<!-- booking.component.html -->
+
+
+   <div class="box2" style=" height:800px; display:flex;"> 
+    <!-- <mat-grid-list cols="3" rowHeight="1:2" gutterSize="2rem" >
+         <mat-grid-tile *ngFor="let recommendation of recommendationArray"> -->
+          <div class="mycard">
+          <mat-card class="custom-card" style="   background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)
+          ); "> 
+            <!-- Custom header for the card -->
+            <mat-card-header class="custom-card-header">
+              <div class="header-content">
+                <div class="avatar">
+                  <img mat-card-avatar src="../../assets/image/home.jpg" alt="User Avatar">
+                </div>
+                <div class="header-text">
+                  <mat-card-title class="card-title">{{teacher.firstName}} {{teacher.lastName}}</mat-card-title>
+                  <mat-card-subtitle>{{teacher.location}}</mat-card-subtitle>
+                </div>
+                <div class="instructor-info">
+                  <div class="instructor-title">{{teacher.instrument}}</div>
+                  <div><mat-card-subtitle>Instructor</mat-card-subtitle></div>
+                </div>
+              </div>
+            </mat-card-header>
+          
+            <img mat-card-image src="../../assets/image/home.jpg" alt="Card Image" class="card-image">
+          
+            <mat-card-content class="custom-card-content">
+              <div class="card-description">{{teacher.description}}</div>
+              <div class="experience">Experience: {{teacher.experience}}</div>
+              <div class="rating">Rating: 5 stars</div>
+            </mat-card-content>
+          
+            <!-- Book button -->
+            <!-- <a routerLink="/booking"><button mat-raised-button color="accent" class="book-button" >Book</button></a> -->
+              <mat-card-footer>
+
+              <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+          
+            </mat-card-footer>  
+          </mat-card>
+          
+        <!-- </mat-grid-tile>
+      </mat-grid-list> -->
+    </div>
+    
+      <div class="card-container">
+        <div class="card" style="margin-bottom: 15%;padding-left: 4%;padding-right: 4%;    background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+        ); ">
+    <h2 class="page-title">Available Bookings</h2>
+    
+      
+        <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+         
+    
+          <mat-form-field style="width: 100%;">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" name="selectedDate" required #selectedDateInput="ngModel" title="input">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="selectedDateInput.invalid && (selectedDateInput.dirty || selectedDateInput.touched)">
+              Date is required.
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field style="width: 100%;">
+            <mat-label>Time Slots</mat-label>
+            <select matNativeControl [(ngModel)]="selectedTime" name="selectedTime" required #selectedTimeInput="ngModel" title="a">
+              <option *ngFor="let timeOption of timeOptions" [value]="timeOption">{{ timeOption }}</option>
+            </select>
+            <mat-error *ngIf="selectedTimeInput.invalid && (selectedTimeInput.dirty || selectedTimeInput.touched)">
+              Time is required.
+            </mat-error>
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+<!-- Mat Dialog Template -->
+<ng-template #dialogTemplate>
+  <h4 style="color:green" >Booking Successful</h4>
+ <!-- <p>Your booking for {{ selectedDate | date }} at {{ selectedTime }} has been confirmed.</p> -->
+</ng-template>
+

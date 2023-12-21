@@ -1,0 +1,22 @@
+<div class="contai" style="overflow:scroll; height:800px;">
+    <mat-grid-list cols="2" rowHeight="3:5" gutterSize="2rem" >
+        <mat-grid-tile *ngFor="let object of numbers" style=" box-shadow:5px 10px 10px whitesmoke;">
+            <mat-card style="width: 100%; height: 100%; ">
+                <mat-card-header>
+                    <mat-card-title>Course</mat-card-title>
+                    <mat-card-subtitle>cczxczx</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="../../assets/image/home.jpg">
+                <mat-card-content style="display: flex;flex-direction:column;">
+                    <div style="margin:2% ;">Music is a lifelong journey Music is a lifelong journey.Music is a lifelong journey......<span style="text-decoration: underline; color: teal;">more</span></div>
+                    <div style="margin:2% ;">Price</div>
+                    <div style="margin:2% ;">Rating</div>
+                </mat-card-content>
+                <mat-card-actions style="display: flex; justify-content: space-between;">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

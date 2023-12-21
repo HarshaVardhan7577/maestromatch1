@@ -1,0 +1,75 @@
+<mat-toolbar>
+    <img routerLink="" style="width: 3rem;height: 3rem; border-radius: 5px;" src='../../assets/image/logo prefect 1.jpeg'><div style="font-size:xx-large;font-weight: bold;font-family: 'Martian Mono', monospace;
+    font-family: 'Montserrat', sans-serif; padding-left: 1%;">Maestromatch</div>
+    <!-- <h1 routerLink="" style="margin: 2px;font-size: 2rem; cursor: pointer; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">MaestroMatch</h1> -->
+    <span class="spacer">
+    </span>
+    <span style="display: flex ;">
+        <div class="example-button-row "  style="margin-right: 20px;" >
+            <button type="button" *ngIf="Who=='Student'&&  IsLoggedIN;else other1" style="background: linear-gradient(
+                to right bottom,
+                rgba(255, 255, 255, 0.7),
+                rgba(255, 255, 255, 0.3)
+              );color:black;" class="btn" routerLink="progrmas" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
+                    <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+                  </svg>
+                <span style="margin: 5px;">Programs</span></button>
+                <ng-template #other1></ng-template>
+                
+        </div>
+        
+
+        <div class="example-button-row" style="margin-right: 20px;" >
+            <button *ngIf="Who=='Teacher'&&  IsLoggedIN;else other" type="button" style="  background: linear-gradient(
+                to right bottom,
+                rgba(255, 255, 255, 0.7),
+                rgba(255, 255, 255, 0.3)
+              );color:black;" class="btn " routerLink="teacherdashboard" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                  </svg>
+                <span style="margin: 5px;">Teacher</span></button>
+                
+                <ng-template #other></ng-template>
+                <button *ngIf="Who=='Student'&& IsLoggedIN;else other2" type="button" style="  background: linear-gradient(
+                    to right bottom,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.3)
+                  );color:black;" class="btn" routerLink="studentdashboard" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                      </svg>
+                    <span style="margin: 5px;">Student</span></button>
+                    
+                    <ng-template #other2></ng-template>
+        </div>
+
+        <div class="dropdown pt-1 " *ngIf="!IsLoggedIN; else elseBlock"  >
+            <button class="btn  dropdown-toggle" type="button"  style="  background: linear-gradient(
+                to right bottom,
+                rgba(255, 255, 255, 0.7),
+                rgba(255, 255, 255, 0.3)
+              ); color: black;" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                    <path
+                        d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                </svg><span style="margin: 5px;">Login/SignUp</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="loginAsStudent"> Student</a></li>
+                <li><a class="dropdown-item" routerLink="loginAsTeacher"> Teacher</a></li>
+            </ul>
+        </div>
+        <ng-template #elseBlock> <button type="button" class="btn"  style="  background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)
+          );color: black;" (click)="logout()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+            <path d="M7.5 1v7h1V1h-1z"/>
+            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+          </svg>Logout</button>
+        </ng-template>
+    </span>
+
+</mat-toolbar>

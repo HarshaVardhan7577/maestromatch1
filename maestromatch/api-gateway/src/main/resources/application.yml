@@ -1,0 +1,55 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+server:
+  port: 7070
+
+spring:
+  application:
+    name: "api-gateway"
+  cloud:
+    gateway:
+      routes:
+      - id: test
+        uri: http://yahoo.com
+        predicates:
+            - Path=/test/**
+      - id: search
+        uri: lb://Search-And-Recommendation-Service
+        predicates:
+            - Path=/api/**
+      - id: review
+        uri: lb://Review-Service
+        predicates:
+            - Path=/review/**
+      - id: auth
+        uri: lb://user-management-service
+        predicates:
+            - Path=/auth/**
+      - id: bookings
+        uri: lb://Booking-Service
+        predicates:
+            - Path=/bookings/**
+      - id: notifications
+        uri: lb://Email-Service
+        predicates:
+            - Path=/notifications/**
+      - id: content
+        uri: lb://Content-Management-Service
+        predicates:
+            - Path=/content/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+
+            

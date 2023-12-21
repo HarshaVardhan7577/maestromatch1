@@ -1,0 +1,87 @@
+.feedback-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+.big_box{
+width: 100%;
+display: flex;
+}
+.box1{
+    width: 25%;
+    padding: 2%;
+
+}
+.review-card {
+  margin: 0px 16px 16px 0;
+  width:130%;
+}
+.box2{
+    width: 75%;
+    padding: 2%;
+
+  
+    height:800px;
+}
+.feedback-card{
+  margin: 0px 16px 16px 0;
+  width:100%;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  ); 
+}
+  .feedback-section {
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  textarea {
+    width: 100%;
+  }
+  
+  .rating-stars {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .star {
+    display: inline-block;
+    margin: 0 5px;
+    transition: color 0.3s;
+  }
+  
+  .star.filled {
+    color: yellow;
+  }
+  
+  .star.hovered {
+    color: orange;
+  }
+  
+  .submit-button {
+    background-color:#0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background-color: #85bbf4;
+  }
+  
+  
+  

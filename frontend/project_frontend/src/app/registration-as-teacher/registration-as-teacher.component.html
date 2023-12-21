@@ -1,0 +1,65 @@
+<div style="margin-top: 2%;display: flex;">
+    <div style="width: 60%;background-image: url('../../assets/image/registration-enquiry.png');margin: 5%;"></div>
+    <mat-card style="width:35% ;margin: auto;border-radius: 1rem;  background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      );" >
+        <mat-card-header style="border-radius: 1rem;margin: auto;display: flex;flex-direction: column;width: 100%;text-align: center;">
+            <div style="margin: auto;"><svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                <path
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+            </svg></div>
+            <div style="font-size: 2rem;font-weight: bold;">Registration</div>
+        </mat-card-header>
+        <mat-card-content style="margin-top: 10px;">
+            <form class="example-form" [formGroup]="profileForm" (ngSubmit)="  loginUser(profileForm)">
+                <mat-form-field class="example-full-width" appearance="outline" >
+                    <mat-label>First Name</mat-label>
+                    <input type="text" formControlName="firstName" required matInput placeholder="bob">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" formControlName="lastName" required matInput placeholder="job">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="mailId"  required matInput placeholder="bob@gmail.com">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" formControlName="password" required matInput placeholder="******">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="text" formControlName="cpassword" required matInput placeholder="******">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label> Instruments</mat-label>
+                    <mat-select  formControlName="instrument">
+                        <mat-option *ngFor="let instrument of instruments" [value]="instrument">{{ instrument }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field  class="example-full-width " appearance="outline">
+                    <mat-label>Location</mat-label>
+                    <input type="text"  formControlName="location" required matInput placeholder="4">
+                </mat-form-field>
+                <mat-form-field  class="example-full-width " appearance="outline">
+                    <mat-label>Experience</mat-label>
+                    <input type="number"  formControlName="experience" required matInput placeholder="4">
+                </mat-form-field>
+                <mat-form-field  class="example-full-width" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea type="text" matInput  formControlName="description"  placeholder="Placeholder" ></textarea>
+                </mat-form-field>
+                
+                <button class="example-full-width" mat-raised-button color="primary" type="submit">Submit</button>
+            </form>
+        </mat-card-content>
+        <mat-card-header style="margin:2% ;">
+            <p>Already have account</p>
+            <p style="margin-left:0.5%;text-decoration: underline;color: blue; cursor: pointer;" (click)="redirect_to_login()">click here</p>
+        </mat-card-header>
+    </mat-card>
+</div>

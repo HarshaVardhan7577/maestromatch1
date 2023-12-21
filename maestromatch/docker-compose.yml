@@ -1,0 +1,119 @@
+version: "3.3"
+services:
+
+
+  mongodbservice:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=elasticsearch
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - 2181:2181
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+
+  user-management-service:
+    container_name: user-management-service
+    build: user-management-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8091:8091
+    depends_on:
+      - mongodbservice
+    restart: always
+
+  search-and-recommendation-service:
+    container_name: search-and-recommendation-service
+    build: search-and-recommendation-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 7702:7702
+    depends_on:
+      - elasticsearch
+    restart: always
+
+  review-service:
+    container_name: review-service
+    build: review-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodbservice
+    restart: always
+
+  content-management-service:
+    container_name: content-management-service
+    build: content-management-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 7005:7005
+    depends_on:
+      - mongodbservice
+    restart: always
+
+  email-service:
+    container_name: email-service
+    build: email-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 7007:7007
+    restart: always
+
+  eureka-server:
+    build: eureka-server/
+    container_name: eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8761:8761
+
+  api-gateway:
+    build: api-gateway/
+    container_name: api-gateway
+    depends_on:
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 7070:7070
+
+
+

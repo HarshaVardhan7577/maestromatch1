@@ -1,0 +1,46 @@
+<div style="background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  ); border-radius: 2rem;">
+    <mat-grid-list cols="3" rowHeight="1:2" gutterSize="2rem"><h3>Your Courses</h3>
+        <mat-grid-tile style="padding:0px" *ngFor="let list of courses">
+            <mat-card class="custom-card"> 
+                <!-- Custom header for the card -->
+                <mat-card-header class="custom-card-header">
+                    <div class="header-content">
+                        <div class="avatar">
+                            <img mat-card-avatar src="../../assets/image/home.jpg" alt="User Avatar">
+                        </div>
+                        <div class="header-text">
+                            <mat-card-title class="card-title">{{list.courseName}}</mat-card-title>
+
+                        </div>
+                        <div class="instructor-info">
+                            <div class="instructor-title">Instrument</div>
+                            <div><mat-card-subtitle>{{list.instrument}} </mat-card-subtitle></div>
+                        </div>
+                    </div>
+                </mat-card-header>
+
+                <img mat-card-image src="../../assets/image/home.jpg" alt="Card Image" class="card-image">
+
+                <mat-card-content class="custom-card-content">
+                    <div class="card-description">{{list.courseDesc}}</div>
+                    <div class="experience"><span> Video Link:</span>
+                        {{list.videoUrl}}</div>
+                     <!-- Book button -->
+                     <button (click)="redirectToDetails(list.courseId)" mat-raised-button color="accent" class="book-button" >Show more</button>
+                        
+                </mat-card-content>
+                
+
+                
+               
+                
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+

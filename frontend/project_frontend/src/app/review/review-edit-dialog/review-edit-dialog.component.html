@@ -1,0 +1,36 @@
+<h2>Edit Review</h2>
+
+<div class="box2">
+  <mat-card style="width: 80%; margin: auto;" class="feedback-card">
+    <mat-card-header style="margin: auto; display: flex; flex-direction: column;">
+      <div style="margin: auto;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+          <!-- Your Font Awesome or other SVG icon code here -->
+        </svg>
+      </div>
+
+      <div style="font-size: 2rem; font-weight: bold; text-align: center;">Review</div>
+
+      <div class="feedback-section">
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="6" cols="80" [(ngModel)]="editedReview.feedback"></textarea>
+      </div>
+
+      <div class="feedback-section">
+        <label for="rating">Rating:</label>
+        <div class="rating-stars" (mouseenter)="hoverRating = selectedRating" (mouseleave)="hoverRating = 0">
+          <span *ngFor="let star of stars; let i = index"
+                class="star"
+                (click)="submitRating(i + 1)"
+                [class.filled]="i < hoverRating || i < selectedRating"
+                [class.hovered]="i < hoverRating">
+            &#9733;
+          </span>
+        </div>
+      </div>
+
+      <button class="submit-button" (click)="saveEditedReview()">Save</button>
+      <button class="cancel-button" (click)="cancelEdit()">Cancel</button>
+    </mat-card-header>
+  </mat-card>
+</div>

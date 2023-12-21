@@ -1,0 +1,185 @@
+/* booking.component.css */
+.page-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    color:black;
+    margin-left:5px;
+  }
+  
+  .card-container {
+
+     display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 50vh;
+    width: 400px;
+   margin-right: 100px;
+    margin-top:100px;
+    
+  }
+   */
+  .card {
+    
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    
+   
+    
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .mat-form-field {
+    
+    margin: 10px;
+   
+  }
+  
+  button {
+    margin: 10px;
+    
+  }
+  /* body{
+    background-color:green ;
+  } */
+    .background-container{
+       
+        background-size : cover;
+        background-position : center;
+        background-repeat: no-repeat;
+        min-height :100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   .sentence-color{
+        color:white;
+        margin-right:900px;
+      
+    }
+
+    .box2{
+      width: 100%;
+      padding: 5%;
+     
+       /* background-image:url("../../assets/image/home.jpg") ;    */
+       /* background-image:url("../../assets/image/m3.jpeg") ;    */
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+  .teacher-card {
+      margin: 0px 16px 16px 0;
+      width:100%;
+    }
+  
+    /* teacher-recommendations.component.css */
+  .teacher-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .teacher-info .instrument {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .teacher-info .instructor {
+      font-size: 12px;
+      color: #888;
+    }
+  
+    .custom-card {
+      width: 60%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+    
+      transform: translateY(0);
+    }
+    
+    .custom-card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+    
+    .custom-card-header {
+      /* background-color: white; */
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .avatar img {
+      margin-right: 8px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    
+    .header-text {
+      flex-grow: 1;
+    }
+    
+    .card-title {
+      font-weight: 550;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    
+    .instructor-info {
+      text-align: right;
+    }
+    
+    .instructor-title {
+      font-weight: 550;
+      /* white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%; */
+    }
+  
+    .instructor{
+      font-weight: 55;
+      color: #848282;
+    }
+    
+    .card-image {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .custom-card-content {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      text-align: justify;
+    }
+    
+    .card-description {
+      margin-bottom: 16px;
+    }
+    
+    .experience {
+      font-weight: 550;
+      margin-bottom: 8px;
+    }
+    
+    .rating {
+      font-weight: 550;
+    }
+    
+   

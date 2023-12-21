@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="big_box">
+        <div class="box1"> </div>
+        <div class="box2">
+            <div style="width: 100%;display: flex;justify-content: center;">
+                <mat-form-field style="width: 60%;" appearance="outline">
+                    <input matInput placeholder="Search" [(ngModel)]="searchtxt">
+                </mat-form-field>
+                <button mat-icon-button style="margin-bottom: 0.5rem;" (click)="onSubmit()">
+                    <mat-icon>search</mat-icon>
+                </button><span><button mat-icon-button [matMenuTriggerFor]="filterMenu">
+                    <mat-icon>filter_list</mat-icon>
+                  </button></span>
+            </div>
+        </div>
+
+    </div>
+    <mat-menu #filterMenu="matMenu">
+        <!-- Add mat-menu-item for each filter option -->
+        
+        <button mat-menu-item>
+          <mat-checkbox [(ngModel)]="nameCheckbox">Name</mat-checkbox>
+        </button>
+        <button mat-menu-item>
+          <mat-checkbox [(ngModel)]="instrumentCheckbox">Instrument</mat-checkbox>
+        </button>
+        <button mat-menu-item>
+          <mat-checkbox [(ngModel)]="locationCheckbox">Location</mat-checkbox>
+        </button>
+    
+      </mat-menu>
+      
+    <div class="big_box">
+        <!-- <div class="box1">
+      
+            <mat-label>Search By</mat-label>
+            <mat-checkbox [(ngModel)]="nameCheckbox">Name</mat-checkbox>
+            <mat-checkbox [(ngModel)]="instrumentCheckbox">Instrument</mat-checkbox>
+            <mat-checkbox [(ngModel)]="locationCheckbox">Location</mat-checkbox>
+        
+        </div> -->
+        <div class="box2" style="background-color: white;overflow:scroll; height:800px;">
+            <mat-grid-list cols="3" rowHeight="1:2" gutterSize="2rem" >
+                <mat-grid-tile *ngFor="let recommendation of recommendationArray">
+                  <mat-card class="custom-card">
+                    <!-- Custom header for the card -->
+                    <mat-card-header class="custom-card-header">
+                      <div class="header-content">
+                        <div class="avatar">
+                          <img mat-card-avatar src="../../assets/image/home.jpg" alt="User Avatar">
+                        </div>
+                        <div class="header-text">
+                          <mat-card-title class="card-title">{{recommendation.firstName}} {{recommendation.lastName}}</mat-card-title>
+                          <mat-card-subtitle>{{recommendation.location}}</mat-card-subtitle>
+                        </div>
+                        <div class="instructor-info">
+                          <div class="instructor-title">{{recommendation.instrument}} </div>
+                          <div><mat-card-subtitle>Instructor</mat-card-subtitle></div>
+                        </div>
+                      </div>
+                    </mat-card-header>
+                  
+                    <img mat-card-image src="../../assets/image/home.jpg" alt="Card Image" class="card-image">
+                  
+                    <mat-card-content class="custom-card-content">
+                      <div class="card-description">{{recommendation.description}}</div>
+                      <div class="experience">Experience: {{recommendation.experience}}</div>
+                      <div class="rating">Rating: 5 stars</div>
+                    </mat-card-content>
+                  
+                    <!-- Book button -->
+                   <button mat-raised-button color="accent" class="book-button" (click)="onBook(recommendation.userId)">Book</button>
+                    <mat-card-footer>
+
+                      <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+                  
+                    </mat-card-footer>
+                  </mat-card>
+                  
+                </mat-grid-tile>
+              </mat-grid-list>
+              <mat-paginator #paginator
+               class="demo-paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [disabled]="disabled"
+               [showFirstLastButtons]="showFirstLastButtons"
+               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+               [hidePageSize]="hidePageSize"
+               
+               aria-label="Select page">
+</mat-paginator>
+        </div>
+    </div>
+
+    <!-- <mat-card *ngFor="let teacher of numbers" class="teacher-card">
+        <mat-card-header>
+            <img mat-card-avatar src="../../assets/image/home.jpg">
+          <mat-card-title>Teacher Name </mat-card-title>
+          <mat-card-subtitle> Total Subscribers: </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card> -->
+</div>
+<app-chatboat-icon></app-chatboat-icon> 

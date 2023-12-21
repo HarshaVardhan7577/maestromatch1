@@ -1,0 +1,114 @@
+<div class="content">
+  <mat-card class="course-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>
+          {{ course.courseName }}
+        </h3>
+      </mat-card-title>
+      <mat-card-subtitle>{{ course.instrument }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="video-container">
+        <iframe width="560" height="315" [src]="embedVideoUrl" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>></iframe>
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/m9pudD4FS5M?si=Yat7fi2HAxhOG4qR"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe> -->
+      </div>
+      <p>{{ course.courseDesc }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button color="primary">Edit</button>
+            <button mat-raised-button color="warn">Delete</button>
+            <button mat-raised-button color="accent">Add Reference Material</button> -->
+      <div class="card-icons" *ngIf="Who=='Teacher';else other1">
+        <mat-icon aria-label="edit course" (click)="onEdit(course.courseId)"> border_color</mat-icon>
+        <mat-icon aria-label="delete course" (click)="onDelete()">delete</mat-icon>
+        <mat-icon aria-label="Add Reference Material" (click)="openRefMatForm()">library_add</mat-icon>
+      </div>
+      <ng-template #other1></ng-template>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <!-- <div class="reference-materials">
+
+    <div *ngFor="let material of refMatList" class="reference-material">
+      <h3>{{ material.title }}</h3>
+      <p>{{ material.content }}</p>
+      <a [href]="material.reflinks" target="_blank">Follow this link for more</a>
+      <mat-icon aria-label="edit course"> border_color</mat-icon>
+      <mat-icon aria-label="delete course">delete</mat-icon>
+    </div>
+  </div>
+</div> -->
+
+  <mat-card *ngFor="let material of refMatList" class="item">
+
+    <mat-card-title> {{material.title}} </mat-card-title>
+
+    <mat-card-content> {{material.content}} </mat-card-content>
+    <mat-card-content> {{material.reflinks}}</mat-card-content>
+
+    <mat-card-actions>
+      <div class="button" *ngIf="Who=='Teacher';else other2">
+        <button (click)="onDeleteRef(material.id)" mat-button color="warn">Delete</button>
+      </div>
+      <ng-template #other2></ng-template>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <ng-template #dialogTemplate>
+    <app-create-ref-mat [courseId]="course.courseId"></app-create-ref-mat>
+  </ng-template>
+
+  <ng-template #deleteDialog>
+    <h2 mat-dialog-title>Confirm Deletion</h2>
+    <mat-dialog-content>
+      <p>Are you sure you want to delete this item?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="deleteCourse()">Delete</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+  <ng-template #deleteDialogRef>
+    <h2 mat-dialog-title>Confirm Deletion</h2>
+    <mat-dialog-content>
+      <p>Are you sure you want to delete this material?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Delete</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+  <ng-template #editDialog>
+    <h2 mat-dialog-title>Edit Course</h2>
+    <mat-dialog-content>
+      <form #editForm="ngForm">
+        <mat-form-field>
+          <input matInput placeholder="Course Name" [(ngModel)]="course.courseName" name="courseName" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Instrument" [(ngModel)]="course.instrument" name="instrument" required>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Course Description" [(ngModel)]="course.courseDesc" name="courseDesc"
+            required></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Video URL" [(ngModel)]="course.videoUrl" name="videoUrl" required>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-button color="primary" [mat-dialog-close]="true" (click)="editCourse(course.courseId,editForm.value)" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+  </ng-template>

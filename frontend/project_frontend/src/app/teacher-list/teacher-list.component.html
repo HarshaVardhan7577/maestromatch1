@@ -1,0 +1,42 @@
+<div class="box2" style="background-color: white;overflow:scroll; height:800px;">
+    <mat-grid-list cols="3" rowHeight="1:2" gutterSize="2rem" *ngFor="let c of teacher">
+        <mat-grid-tile>
+            <mat-card class="custom-card">
+                <!-- Custom header for the card -->
+                <mat-card-header class="custom-card-header">
+                    <div class="header-content">
+                        <div class="avatar">
+                            <img mat-card-avatar src="../../assets/image/home.jpg" alt="User Avatar">
+                        </div>
+                        <div class="header-text">
+                            <mat-card-title class="card-title">{{c.firstName}} {{c.lastName}}</mat-card-title>
+                            <mat-card-subtitle>{{c.location}}</mat-card-subtitle>
+                        </div>
+                        <div class="instructor-info">
+                            <div class="instructor-title">{{c.instrument}} </div>
+                            <div>
+                                <mat-card-subtitle>Instructor</mat-card-subtitle>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-header>
+
+                <img mat-card-image src="../../assets/image/home.jpg" alt="Card Image" class="card-image">
+
+                <mat-card-content class="custom-card-content">
+                    <div class="card-description"></div>
+                    <div class="experience">Experience:{{c.experience}}</div>
+                    
+                </mat-card-content>
+
+                <!-- Book button -->
+                <button mat-raised-button color="accent" class="book-button" (click)="onRate(c.userId)">Rate</button>
+                <mat-card-footer>
+
+                    <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+
+                </mat-card-footer>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

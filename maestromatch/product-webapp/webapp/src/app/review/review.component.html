@@ -1,0 +1,60 @@
+    <div class="big_box">
+      <div class="box1">
+        <mat-card *ngFor="let c of reviewArray" class="review-card" style="background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+        ); ">
+          <mat-card-header>
+            <img mat-card-avatar src="../../assets/image/home.jpg">
+            <mat-card-title>Anonymous </mat-card-title>
+                <mat-card-subtitle> Feedback: {{c.feedback}}</mat-card-subtitle>
+                <mat-card-title>Rating: {{c.rating}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <!-- <button mat-button color="primary" (click)="editReview(c)">Edit</button>
+            <button mat-button color="warn" (click)="deleteReview(c.id)">Delete</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+    
+    <div class="box2">
+        <mat-card style="width:80% ;margin: auto;"  class="feedback-card">
+          <mat-card-header style="margin: auto; display: flex;flex-direction: column;">
+              <div style="margin: auto;"><svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+              </svg></div>
+
+  <div style="font-size: 2rem;font-weight: bold;text-align: center;">Review</div>
+  
+    <div class="feedback-section">
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="6" cols="80" [(ngModel)]="r.feedback" style="  background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      ); "></textarea>
+    </div>
+  
+    <div class="feedback-section">
+      <label for="rating">Rating:</label>
+      <div class="rating-stars" (mouseenter)="hoverRating = selectedRating" (mouseleave)="hoverRating = 0">
+        <span *ngFor="let star of stars; let i = index"
+              class="star"
+              (click)="submitRating(i + 1)"
+              [class.filled]="i < hoverRating || i < selectedRating"
+              [class.hovered]="i < hoverRating">
+          &#9733;
+        </span>
+      </div>
+    </div>
+  
+    <button class="submit-button" (click)="submitFeedback()">Submit</button>
+    <br>
+    </mat-card-header>
+    </mat-card>
+    </div>
+    </div>

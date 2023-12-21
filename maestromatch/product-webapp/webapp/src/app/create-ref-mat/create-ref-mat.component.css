@@ -1,0 +1,52 @@
+/* Container for the popup form */
+.popup-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup form */
+.popup-form {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%; /* Adjust the maximum width as needed */
+  width: 400px; /* Adjust the width as needed */
+  padding: 20px;
+}
+
+/* Popup header */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Close button */
+.close-btn {
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #f00; /* Change color on hover */
+}
+
+/* Form controls */
+
+
+/* Submit button */
+.example-full-width {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* You can add more styles as needed for specific form elements */

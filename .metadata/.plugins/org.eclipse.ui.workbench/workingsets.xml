@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1693914751084_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1693914751111_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1693914784473_3" label="maestromatch" name="maestromatch">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/maestromatch" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/config-server" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eureka-server" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/api-gateway" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/product-webapp" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/user-management-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/email-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/payment-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/review-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/content-management-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/class-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/search-and-recommendation-service" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1693914755102_2" label="Window Working Set" name="Aggregate for window 1693914755102"/>
+</workingSetManager>

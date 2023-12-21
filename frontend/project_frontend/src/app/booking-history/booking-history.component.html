@@ -1,0 +1,41 @@
+<h2  class="page-title" >Booking History</h2>
+  <style>
+  table {
+      border-collapse: collapse;
+      width: 90%;
+      margin:10px;
+  }
+  th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+  th {
+      background-color: #f2f2f2;
+  }
+  </style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>Teacher ID</th>
+      <th>Student ID</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookingHistoryData">
+      <td>{{ booking.bookingId }}</td>
+      <td>{{ booking.teacherId }}</td>
+      <td>{{ booking.studentId }}</td>
+      <td>{{ booking.date }}</td>
+      <td>{{ booking.time }}</td>
+      <td>{{ booking.status }}</td>
+    </tr>
+  </tbody>
+</table>
+
+

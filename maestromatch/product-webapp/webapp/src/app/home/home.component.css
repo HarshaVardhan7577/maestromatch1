@@ -1,0 +1,23 @@
+.contai{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-image: url("../../assets/image/home.jpg");
+    background-size: auto;
+}
+.home-box{
+    width: 50%;
+    margin: auto;
+    color:white;
+}
+p{
+    margin: auto;
+    width: 90%;
+    font-size: large;
+}
+.example-button-row{
+    margin: 2%;
+    margin-left: 5%;
+}

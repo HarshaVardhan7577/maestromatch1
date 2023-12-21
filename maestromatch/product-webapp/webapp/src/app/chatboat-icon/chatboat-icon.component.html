@@ -1,0 +1,36 @@
+<div class="app">
+<div class="app-wrapper app-responsive">
+  <div data-align="right" class="closed">
+    <div class="bubble" style="background: rgb(0, 102, 255);">
+
+      <div class="greeting-close"
+       [style.display]="display" 
+       *ngIf="showGreeting"
+       
+       >
+
+        <button class="cls-btn" mat-icon-button aria-label="close dialog" (click)="dispay()" >
+
+          <mat-icon>close</mat-icon>
+
+        </button>
+        <mat-card class="greeting-content" (click)="openChatbox(); dispay()"  > <!-- (mouseenter)="showCloseButton()" -->
+     
+          <mat-card-content>🙌 Welcome back! How may I help you today? 🤖</mat-card-content>
+        </mat-card>
+        
+        
+      </div>
+
+      <a (click)="openChatbox()" class="chatbot-button">
+        <div data-status="loaded" data-cover="true" class="lazy-img">
+          <img src="https://cdn.chatbot.com/widget/61f28451fdd7c5000728b4f9/DSjjJVtWgP_jxGWP.png" alt=""
+            class="lazy-img-loaded" />
+        </div>
+      </a>
+    </div>
+  </div>
+  
+
+
+  
